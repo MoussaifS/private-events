@@ -1,0 +1,17 @@
+<h1> add your event</h1>
+<%=form_with(model: @event ,  method: 'POST') do |e|%>
+
+
+<strong><%= e.label :title ,"Event Title:" %></strong>
+<br>
+<%= e.text_field :title  %> 
+
+<br>
+<br>
+<strong><%= e.label :event_day  , "The Event Date:" %></strong>
+<br>
+<%= e.date_field :event_day %>
+<br>
+<br>
+<%=e.submit  "Post the Event"  %>
+<%end%>
