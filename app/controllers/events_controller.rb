@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
     def index
         @event = Event.all
+        @current_user = current_user
     end
 
     def show
@@ -8,8 +9,16 @@ class EventsController < ApplicationController
     end
 
     def create 
-        @event = Event.new(event_params)
-        @event.user_id = 1
+        puts "params[:title]: #{params[:title]}"
+        puts "params[:event_day]: #{params[:event_day]}"
+
+        user = User.find(current_user.id)
+        @event = user.events.build(event_params) 
+        
+        puts "params[:title]: #{params[:title]}"
+        puts "params[:event_day]: #{params[:event_day]}"
+
+        
         if @event.save
             redirect_to root_path
         else 
