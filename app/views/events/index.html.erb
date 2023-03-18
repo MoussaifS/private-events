@@ -1,1 +1,19 @@
 <h1> event index </h1>
+
+<%@event.each do |e|%>
+    <span>EVENT NAME: </span> <strong><%=e.title%></strong>
+    <br/>
+    <span>EVENT DATE: </span><strong><%=e.event_day%></strong>
+    <br/>
+    <p> ========================== </p>
+    <br/>
+
+<%end%>
+<br>
+
+<%= link_to "new event",  {:controller => "events", :action => "new"}  %>
+<br>
+<br>
+<br>
+
+<%= link_to "new users",  {:controller => "users/registrations" , :action=>"new"}  %>

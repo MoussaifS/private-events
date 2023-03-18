@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :events, class_name: "event", foreign_key: "id"
+  has_many :events
 
   def email_required?
     false

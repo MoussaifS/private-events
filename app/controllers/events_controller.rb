@@ -8,9 +8,10 @@ class EventsController < ApplicationController
     end
 
     def create 
-        @event = Event.create(event_params)
+        @event = Event.new(event_params)
+        @event.user_id = 1
         if @event.save
-            redirect_to index_path
+            redirect_to root_path
         else 
             render 'new'
         end
@@ -22,7 +23,6 @@ class EventsController < ApplicationController
 
     private 
     def event_params 
-
-        params.require(:event).permit(:title, :date )
+        params.require(:event).permit(:title, :event_day )
     end
 end
